@@ -1,0 +1,1403 @@
+JS_EXERCISES_2
+
+1.1
+Поиск подстроки .startsWith
+В программе задана переменная message со строковым значением. 
+Определите наличие подстроки привет в начале строки переменной message. 
+Если данное условие выполняется, выведите в консоль булевое значение true, в ином случае — false. 
+Сравнение должно быть без учета регистра. Правильный ответ выведите в консоль.
+
+let message = "приветствую вас"
+let mlc = message.toLowerCase();
+
+if (mlc.startsWith("привет")) {
+   console.log(true);
+} else {
+  console.log(false);
+}
+
+1.2
+Поиск подстроки  .lastIndexOf
+В программе задана переменная greetings со строковым значением. 
+Определите позицию последнего вхождения подстроки username в значении переменной greetings. 
+Результат выведите в консоль.
+
+Пример значений переменных:
+
+greetings = "Приветствую, username! Сегодня вы получили два сообщения от username."
+
+console.log(greetings.toLowerCase().lastIndexOf("username"))
+
+
+1.3
+Поиск подстроки  .IndexOf
+В программе задана переменная firstDiv со строковым значением. 
+Определите, встречаются ли в данной строке два парных тега <p>. 
+Выведите в консоль булевое значение true, если встречается, и false — в ином случае.
+
+Пример значений переменных:
+
+firstDiv = "<div><p>Первый заголовок</p><p>Второй заголовок</p></div>"
+
+        let first_step = firstDiv.indexOf("<p>");
+        let second_step = firstDiv.indexOf("<p>", first_step +1);
+
+
+  if (second_step > 0) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+
+1.4
+
+Получение подстроки slice
+В программе объявлена переменная road со строковым значением, 
+которая задает протяженность дороги. Необходимо из строки убрать подстроку km, 
+оставив только численное значение. Его необходимо конвертировать в мили, 
+округлить до одного знака после запятой, а результат вывести в консоль. 
+Помните, что 1 километр равен 0,62 мили.
+
+let result_slice = road.slice(0, str.length-3);
+let result_convert = parseFloat(result_slice)*0.62;
+let result_round = result_convert.toFixed(1)
+console.log(result_round);
+
+
+function convert (str) {
+   let result = str.slice(0, str.length-3);
+   result = parseFloat(result)*0.62;
+   return +result.toFixed(1);
+}
+
+console.log(convert(road));
+
+
+1.5
+
+Поиск подстроки  .IndexOf
+В программе задана переменная words со строковым значением. 
+Напишите условный оператор, который выводит в консоль сообщение 
+В строке больше одного слова, если строка содержит больше одного слова, 
+в ином случае в консоль должна выводиться фраза В строке одно слово.
+
+
+let first_step = words.indexOf(' ')
+
+if (first_step > 0){    
+console.log("В строке больше одного слова");
+} else {
+console.log("В строке одно слово");
+}
+
+function searchTag(str) {
+let first = str.indexOf(" ");
+
+if (first > 0) {    
+console.log("В строке больше одного слова");
+} else {
+console.log("В строке одно слово");
+}
+}
+
+searchTag(words);
+
+
+1.6
+Получение кода символа .codePointAt 
+Получение подстроки .slice
+В программе объявлена переменная symbols со строковым значением. 
+В данной строке могут встречаться буквенные символы и цифры. 
+Опишите условие, которое выводит в консоль строку Первый символ цифра,
+если первый символ переменной symbols является цифрой. 
+В противном случае необходимо вывести строку Первый символ не цифра.
+let symbols = "1";
+
+console.log('0'.codePointAt()); //48
+console.log('1'.codePointAt(0));
+console.log('2'.codePointAt(0));
+console.log('3'.codePointAt(0));
+console.log('4'.codePointAt(0));
+console.log('5'.codePointAt(0));
+console.log('6'.codePointAt(0));
+console.log('7'.codePointAt(0));
+console.log('8'.codePointAt(0));
+console.log('9'.codePointAt(0)); //57
+
+let result = symbols.slice(0);
+
+if (result.codePointAt(0)<48 || result.codePointAt(0)>57) {
+  console.log ("Первый символ не цифра");
+} else {
+   console.log("Первый символ цифра");
+}
+
+
+1.7
+
+Получение кода символа .codePointAt 
+символ из кода fromCodePoint
+В программе объявлена переменная symbols со строковым значением. 
+Напишите условный оператор, который реализует следующую логику:
+
+Если сумма числовых значений Unicode первых двух символов делится на два без остатка,
+необходимо получившееся число конвертировать в unicode-символ и вывести в консоль
+В ином случае необходимо вывести сообщение Символ обнаружить не удалось
+
+let one_u = symbols.codePointAt(0)
+let two_u = symbols.codePointAt(1)
+let sum_o_t = one_u + two_u
+
+if((one_u + two_u) % 2 === 0){
+  console.log(String.fromCodePoint(sum_o_t))
+} else {
+  console.log('Символ обнаружить не удалось')
+}
+
+
+1.8
+замена подстроки .replace
+В программе задана переменная phone со строковым значением. 
+В ней хранится номер телефона и, помимо цифр, иные символы. 
+Преобразуйте строку так, чтобы в номере отсутствовали следующие символы: (,/:/*/ ).
+
+Пример значений переменных:
+
+phone = "+712:34567*8,90"
+
+let result = phone.replace
+(/[^+0-9]/g,'');
+
+console.log(result);
+
+1.9
+
+В программе задана переменная emails со строковым значением. 
+В ней указано несколько значений электронной почты через пробел. 
+Преобразуйте данное значение в массив так, чтобы каждая почта в строке 
+являлась элементом массива. Результат выведите в консоль.
+
+Пример значений переменных:
+
+emails = "example@ex.ru primer@primer.com email@com.ru"
+
+разбить строку - возвратить массив
+.split
+console.log(emails.split(/ /g));
+
+поиск в строке - возврат массив
+,match()
+if (emails.length>0) {
+let result = emails.match(/[a-z0-9-]*@[a-z0-9]*.[a-z]*/g)
+console.log(result);
+} else {
+let result =[""];
+console.log(result);
+}
+
+1.10
+
+замена подстроки .replace
+В программе задана переменная ticket со строковым значением. Напишите условный оператор, который работает по следующей логике:
+
+Если в билете после буквенных символов и тире идут 8 цифр подряд, программа должна вывести в консоль сообщение Выбран билет на концерт
+Если в билете после буквенных символов идут 12 цифр подряд, программа должна вывести в консоль сообщение Выбран билет в театр
+В противном случае выведите в консоль сообщение Билет не определен
+
+Пример значений переменных:
+
+ticket = "BM-12234567:RU"
+
+let result = ticket.replace(/[a-zA-Z:-]/g, '')
+
+if (result.length === 8) {
+  console.log("Выбран билет на концерт");
+} else if (result.length === 12) {
+  console.log("Выбран билет в театр");
+} else {
+  console.log("Билет не определен");
+}
+
+2.1
+
+В программе задана переменная values, которая хранит массив со строковыми и булевыми значениями. 
+Замените булевое значение с минимальным индексом на строковое значение Булевый тип. 
+Преобразованный массив выведите в консоль. Примечание: подразумевается решение без методов массивов, 
+просто вспомним, как работать с массивами и циклами!
+
+
+Пример значений переменных:
+
+values = ["Строка", true, "Число", "Объект", "Не число", false]
+
+
+for (let index = 0; index<=values.length; index++) {
+  if ((values[index] == true) | (values[index] == false)) {
+    values[index]= 'Булевый тип';
+     break;
+  }
+}
+console.log(values);
+
+or
+
+for (let i = 0; i < values.length; i++)
+if (typeof(values[i]) == "boolean") {
+values[i] = "Булевый тип";
+break;
+}
+console.log(values);
+
+2.2
+
+В программе задана переменная partNumbers, которая хранит в себе массив. 
+Каждый элемент массива является артикулом товара. Напишите программу, которая 
+создаст новый массив на основе partNumbers. В новом массиве должны быть все элементы из 
+partNumbers, которые заканчиваются на две цифры и два буквенных символа. 
+Все остальные элементы необходимо отбросить. Значение нового массива выведите в консоль.
+
+Пример значений переменных:
+
+partNumbers = ["ER1234COM", "FIV987451RU","GE123JO","P4321NO"]
+
+const partNumbers2 = partNumbers.filter
+(elmnt => (/[0-9]{2}[a-z]{2}$/ig) .test(elmnt) === true)
+
+console.log(partNumbers2);
+
+
+2.3
+
+В программе задана переменная layout, которая хранит в себе строковое значение. 
+Данная строка содержит в себе часть HTML-верстки с числами. На основе значения layout 
+сформируйте массив из чисел, которые встречаются в верстке. Если число четное, возведите 
+его в квадрат, в ином случае оставьте без изменений. Полученный массив выведите в консоль. 
+Если строка layout не содержит чисел, выведите пустой массив.
+
+Пример значений переменных:
+
+layout = "<p>10</p><p>14</p><p>23</p><p>43</p><p>98</p><p>101</p>"
+
+let newArr = [];
+let arr = layout.match(/\d+/g);
+    if (arr !== null) {
+      for (let i = 0; i <= arr.length - 1; i++) {
+         if (arr[i] % 2 == 0) {newArr.push(arr[i] ** 2);
+}   else {
+         newArr.push(+arr[i]);
+}
+}
+}
+console.log(newArr);
+
+»»»»»»»»»»»»»»»»»»»»»»»»»»»»
+
+ function dunkan(string) {
+   let result = (string.match(/[0-9]+/g));
+   if (result === null) {
+    return result = [];
+  } else {
+    result = result.map(function (element) {
+      if (element % 2 === 0) {
+         element = Math.pow(element, 2);
+         return element;
+       } else {
+         element = Number(element);
+        return element;
+      }
+    });
+  }
+
+  return result;
+}
+console.log(dunkan(layout));
+
+or
+
+layout = layout.split('>');
+//строка в массив
+let num = 0;
+let newArray = [];
+for (let items of layout) {
+    num = parseInt(items);
+//возвращает целое число
+   if (Number.isInteger(num)) {
+//проверяет - целое число
+    newArray.push(parseInt(items));
+   }
+}
+console.log(newArray);
+let customArray= newArray.map(function(square) {
+  return square= square%2==0 ? square*square : square;
+})
+console.log(customArray);
+
+
+2.4
+
+В программе задана переменная tasks, которая содержит массив. 
+Элементы данного массива являются объектами с ключами title и completed. 
+Сформируйте новый массив titles, который в качестве значений может хранить 
+свойства title из всех значений массива tasks. Результат выведите в консоль.
+
+Пример значений переменных:
+
+tasks = [
+    {title: "Умыться" , completed: true},
+    {title: "Сделать зарядку" , completed: true},
+    {title: "Приготовить завтрак" , completed: false}
+]
+
+const titles = tasks.map(i => i.title)
+console.log(titles)
+
+
+2.5
+
+задана переменная values, которая хранит массив со строковыми и булевыми значениями. 
+На основе массива values сформируйте новый массив result, который является фрагментом 
+values. Новый массив должен начинаться с первого вхождения булевого значения и заканчиваться
+последним вхождением булевого значения в массив values. Выведите получившийся массив в консоль.
+
+
+Пример значений переменных:
+
+values = ["Строка",true,"Числа","Объект","Не число", false, "Не объект"]
+Пример результата:
+
+[true, "Число", "Объект", "Не число", false]
+
+let start = values.findIndex(el => typeof el === "boolean");
+let end = values.findLastIndex(el => typeof el === "boolean");
+console.log(values.slice(start, end + 1));
+
+or
+
+let ibf = 0; 
+let ibl = 0;
+    for (let i = 0; i <= values.length - 1; i++) {
+    if (typeof values[i] === "boolean") {
+    ibf = i;
+    break;
+}
+}
+for (let i = values.length - 1; i >= 0; i--) {
+    if (typeof values[i] === "boolean") {
+    ibl = i;
+    break;
+}
+}
+let newValues = values.slice(ibf, ibl + 1);
+console.log(newValues);
+
+or
+
+let index1=values.indexOf(true);
+let index2=values.indexOf(false);
+let startIndex=index1<index2? index1:index2;
+let index3=values.lastIndexOf(true);
+let index4=values.lastIndexOf(false);
+let endIndex=index3>index4? index3:index4;
+endIndex++
+const result= values.slice(startIndex,endIndex);
+console.log(result);
+
+2.6
+
+В программе задана переменная values, которая хранит в себе массив. 
+Элементы массива являются числами. Определите, находятся ли в заданном массиве элементы, 
+которые содержат четырехзначные числа. Результат выведите в консоль в виде булевого значения 
+(true, если содержит, и false, если нет).
+
+
+Пример значений переменных:
+
+values = [10, 185, 11200, 980]
+
+const four = (i) => String(i).length === 4;
+console.log(values.some(four));
+
+or
+
+        let id = false;
+        for (let value of values) {
+            if (value >= 1000 && value <= 9999) {
+                id = true;
+                break;
+            }
+        }
+        console.log(id);
+
+
+2.7
+
+Необходимо доработать программу из задания 2.6
+
+В программе задана переменная values, которая хранит в себе массив. 
+Элементы массива являются числами. Определите, находятся ли в заданном массиве элементы, 
+которые содержат четырехзначные числа. Если такие значения встречаются, выведите индекс первого в консоль. 
+В противном случае выведите сообщение Искомый элемент не был найден.
+
+let test = -1;
+test = values.findIndex(el => (el + "").length === 4);
+console.log(test >= 0 ? test : "Искомый элемент не был найден");
+
+or
+
+let result = values.findIndex(e => ((e/1000 >= 1) && (e/1000 <= 10))); 
+console.log((result !== -1) ? result : "Искомый элемент не был найден");
+
+or
+
+let indexOfvalue = values.findIndex((element) => String(element).length === 4)
+if(indexOfvalue === -1){
+console.log("Искомый элемент не был найден");
+}
+else{
+console.log(indexOfvalue);
+}
+
+2.8
+
+В программе задана переменная users, которая хранит в себе массив. 
+Элементы данного массива являются объектами. Определите индекс элемента, 
+значение свойства role которого содержит больше одного слова. 
+Результат выведите в консоль разработчика.
+
+
+Пример значений переменных:
+
+users = [
+    {login: "user1", role: "Admin"},
+    {login: "user2", role: "State user"},
+    {login: "user3", role: "Moderator"}
+]
+
+console.log(users.findIndex(({role}) => role.includes(' ')));
+
+or
+
+console.log(users.findIndex(e => / /.test(e.role) === true));
+
+or
+
+let elem = users.find(m => m.role.indexOf (' ') !== -1);
+console.log(users.indexOf(elem));
+
+
+2.9
+
+В программе задана переменная array, которая хранит в себе двумерный массив. 
+Его элементы — массивы, состоящие из чисел. Отсортируйте массив по количеству 
+элементов вложенного массива по возрастанию. Результат выведите в консоль.
+
+
+Пример значений переменных:
+
+array = [[1,2,3],[1,2],[1,2,3,4]]
+
+console.log(array.sort ((a,b) => a.length - b.length));
+
+
+2.10
+
+В программе задана переменная randValues, которая хранит в себе массив. 
+Его элементы могут являться как строковыми, так и числовыми значениями. 
+Отсортируйте массив следующим образом:
+
+В начале массива должны быть все числовые значения по возрастанию
+В конце все строковые, упорядоченные по алфавиту
+Результат выведите в консоль.
+
+Пример значений переменных:
+
+randValues = ["Банан", 3, "Апельсин", 2, "Вишня"]
+
+randValues.sort((a, b) => {
+const typeA = typeof a
+const typeB = typeof b
+
+if (typeA === 'string' && typeB === 'string')
+                return a.localeCompare(b)
+else if (typeA === 'number' && typeB === 'number')
+                return a - b
+else if (typeA === 'number' && typeB === 'string')
+                return -1
+else
+                return 1
+        })
+
+        console.log(randValues)
+
+
+
+2.11
+
+В программе задана переменная words, которая хранит в себе массив строковых значений. 
+Напишите скрипт, который считает количество палиндромов и непалиндромов в массиве words. 
+Результат должен представлять собой массив из двух элементов, где первое значение — количество палиндромов, 
+а второе — непалиндромов.
+
+
+Пример значений переменных:
+
+words = ["Заказ", "Такси", "Доход"]
+
+let plndrm = 0;
+let mrdnlp = 0;
+console.log(words);
+
+let fnctn = words.forEach(e => {
+    let strReverse = e.toLowerCase().split('').reverse().join('');
+       console.log(strReverse + "-"+ e);
+    if (strReverse === e.toLowerCase()) {
+       plndrm++
+       } else {
+       mrdnlp++
+       }
+});
+let result = [plndrm, mrdnlp];
+console.log(result);
+
+
+2.12
+
+В программе задана переменная dates, которая хранит в себе строковое значение. 
+В данной строке хранятся значения дат в формате ДД:ММ:ГГГГ, которые разделены пробелами. 
+На основе значения переменной dates сформируйте новый массив, каждый элемент которого содержит 
+одну дату переменной dates, преобразованную в формат ДД/ММ/ГГГГ. 
+Выведите содержимое сформированного массива в консоль.
+
+Пример значений переменных:
+
+dates = "23.04.1996 07.10.2002 15.08.1945"
+Пример результата:
+
+["23/04/1996", "07/10/2002", "15/08/1945"]
+
+const result = dates.split(".").join("/").split(" ");
+console.log(result);
+
+
+2.13
+
+В программе задана переменная tickets, которая хранит в себе строковое значение. 
+В этой переменной указаны номера билетов на поезд (после слова Train) и на самолет (после слова Airplane). 
+Необходимо написать скрипт, который на основе строки из переменной tickets формирует объект. 
+Он должен хранить в себе два ключа (train, airplane), а в качестве значений — массивы с номерами 
+билетов для поезда и самолета соответственно.
+
+Пример значений переменных:
+
+tickets = "Train: AV432, FS452, OE402. Airplane: DR578, JN1089, NDK140."
+Пример результата:
+
+{
+    "train" : ["AV432", "FS452", "OE402"],
+    "airplane" : ["DR578", "JN1089", "NDK140"]
+}
+
+const result = {};
+const arr1 = tickets.split(". ");
+const arr2 = [];
+
+for (let i = 0; i < arr1.length; i++){
+
+    arr1[i] = arr1[i].replace(/[:.,]/g, '');
+    arr2[i] = arr1[i].split(' ');
+    str = arr2[i].shift().toLowerCase();
+
+    result[str] = arr2[i];
+}
+console.log(result);
+
+2.14
+
+В программе задана переменная numbers, которая хранит массив из чисел. 
+Определите, какое максимальное количество элементов массива numbers (в порядке, 
+который реализован в массиве) можно сложить, чтобы их итоговая сумма не превышала 50. 
+Результат выведите в консоль.
+
+Пример значений переменных:
+
+numbers = [10, 20, 33, 55, 100]
+Пример результата:
+
+2
+
+let summ=0;
+for(i=0;i<numbers.length;i++){
+summ +=numbers[i];
+if(summ>50){
+break;
+}
+}
+console.log(i);
+
+or
+
+let count = 0; 
+let sum = 0;
+
+const sumArr = numbers.reduce(function(previousValue, currentItem,currentIndex ) {
+      sum = previousValue + currentItem;
+      if (sum <= 50){
+        count++ ; 
+      } 
+      return previousValue + currentItem;
+},0)
+
+console.log(count);
+
+2.15
+
+В программе задана переменная values, которая хранит массив из строк. 
+Определите математическую сумму всех элементов, которые при преобразовании 
+в число не вернут значение NaN. Результат выведите в консоль.
+
+Пример значений переменных:
+
+values = ["100", "30", "Не число", "20", "Тоже не число"]
+Пример результата:
+
+150
+
+let numValues = 
+values.filter (e => Number(e)).map 
+(e => e = Number(e)).reduce
+(function (previousValue, currentItem){
+  return previousValue + currentItem
+}, 0);
+console.log(numValues);
+
+or
+
+let result = 0;
+
+for (i = 0; i < values.length; i++){
+     if(isNaN(parseFloat(values[i])) === false){
+     result = result + parseFloat(values[i]);
+}
+}
+console.log(result);
+
+
+2.16
+
+В программе заданы два массива array_1 и array_2, 
+элементы которого являются числами. Значения внутри одного массива уникальные.
+Реализуйте функцию intersection, которая принимает в качестве аргументов два 
+массива и возвращает новый массив. Он должен содержать значения, которые встречаются 
+в обоих массивах-аргументах, и быть отсортирован по убыванию.
+
+Пример значений переменных:
+array_1 = [2, 4, 7, 8, 1]
+array_2 = [2, 5, 11, 6, 1]
+
+Пример результата:
+[2, 1]
+
+function intersection (arr1,arr2) {
+ return array = arr1.filter(function (e) {
+  for (let value of arr2) {
+     if (e == value) { 
+       return true
+      };
+  } 
+ }).sort((a,b)=>b-a)
+}
+console.log (intersection(array_1,array_2));
+
+or
+
+function intersection (array_1, array_2) {
+const result = [];
+for (let item of array_1) {
+if (array_2.some(e => e === item)) result.push (item);
+}
+return result.sort((a,b) => b-a);
+}
+
+console.log(intersection(array_1, array_2));
+
+
+3.1
+
+В программе объявлена переменная car, которая хранит в себе объект, 
+у которого есть как минимум одно свойство — engine. Удалите из объекта car 
+свойство engine и результат выведите в консоль.
+
+
+Пример значений переменных:
+
+car  = {
+    model: "Audi", 
+    color: "white",
+    weight: 1850,
+    engine: "170 hp"
+}
+Пример результата:
+
+{
+    model: "Audi", 
+    color: "white",
+    weight: 1850
+}
+
+delete car.engine;
+
+console.log(car);
+
+
+3.2
+
+В программе объявлена переменная goods, которая хранит объект со свойствами, 
+описывающими товар. Сформируйте массив, который содержит в начале все названия 
+свойств объекта, а потом все их значения. Результат выведите в консоль.
+
+
+Пример значений переменных:
+
+goods = {
+    title: "Самокат", 
+    price: 6000,
+    good_id: 1
+}
+Пример результата:
+
+["title, "price", "good_id", "Самокат", 6000, 1]
+
+let k = Object.keys(goods);
+console.log(k);
+let v = Object.values(goods);
+console.log(v);
+
+let result = k.concat(v);
+console.log(result);
+
+
+3.3
+В программе заданы две переменные article и author, которые содержат объекты. 
+Объект article содержит информацию о статье, а author — об авторе. 
+Сформируйте новый объект, который содержит свойства объектов article и author.
+Результат выведите в консоль.
+
+
+Пример значений переменных:
+
+article = {
+    title: "Загадки дачного огурца", 
+    text: "Огурец не перестает удивлять своими выходками. Хозяйка в недоумении" 
+}
+author = {
+    name: "Ричард М.В.",
+    age: 43
+}
+
+Пример результата:
+
+article = {
+    title: "Загадки дачного огурца", 
+    text: "Огурец не перестает удивлять своими выходками. Хозяйка в недоумении",
+    name: "Ричард М.В.",
+    age: 43
+}
+
+let clone = Object.assign(article, author);
+console.log(clone)
+
+3.4
+
+В программе задан массив array. Напишите функцию count(),
+которая считает количество элементов массива array и выводит в консоль сообщение, как в примере.
+
+
+Пример значений переменных:
+
+array = [true, 4, "word", "10n"]
+Пример результата:
+
+Количество элементов в массиве: 4
+
+function count(){
+let count = array.length;
+console.log(`Количество элементов в массиве: ${count}`);
+}
+count();
+
+
+3.5
+
+В программе задан двумерный массив employee. Удалите у данного массива значение, 
+у которого первый элемент hireDate, и добавьте новое значение ["jobName", "IT PROG"] в конец массива. 
+Результат выведите в консоль.
+
+
+Пример значений переменных:
+
+employee  = [
+    ["firstName", "Ivan"], 
+    ["lastName", "Ivanov"],
+    ["hireDate", "21.10.2015"]
+]
+Пример результата:
+
+[
+    ["firstName", "Ivan"], 
+    ["lastName", "Ivanov"],
+    ["jobName", "IT PROG"]
+]
+
+let nE = new Map(employee);
+nE.delete('hireDate');
+nE.set("jobName", "IT PROG");
+console.log(nE); 
+let result = Object.entries(Object.fromEntries(nE));
+console.log(result);
+
+or
+
+let array = employee.filter(e=> e[0] !== "hireDate") 
+// фильтруем массив
+array.push(["jobName", "IT PROG"]); 
+// добавляем нужный элемент
+console.log(array);
+
+
+3.6
+
+В программе задан двумерный массив array. Создайте и вызовите функцию countString(),
+которая считает количество значений массива array, у которых второй элемент является 
+строкой. Функция countString() должна выводить в консоль сообщение, как в примере.
+
+
+Пример значений переменных:
+
+array = [
+        [ "boolean", true ], 
+        [ "number", 4 ],
+        [ "string", "word" ],
+        [ "object", {}]
+    ]
+Пример результата:
+
+Количество строковых элементов в именованном массиве: 1
+
+function countString() {
+  let count=0;
+  for (i=0; i<array.length; i++) {
+     if ( typeof array[i][1] == 'string') {
+       count++
+     }
+  } 
+   return console.log (`Количество строковых элементов в именованном массиве: ${count}`);
+}
+countString();
+
+
+4.1
+
+В программе объявлены объекты pet_1 и pet_2. Напишите функцию getName() 
+и присвойте ее объектам pet_1 и pet_2 в качестве метода. При вызове метода getName()
+он должен вернуть имя и возраст питомца через пробел. Решить задачу необходимо с использованием this.
+
+Пример значений переменных:
+
+pet_1 = { 
+    name: "Шарик", 
+    age: 10 
+};
+
+pet_2 = { 
+    name: "Жучка", 
+    age: 5
+};
+
+
+function getName() {
+const result = `${this.name} ${this.age}`;
+return result
+}
+pet_1.getName = getName.bind(pet_1);
+pet_2.getName = getName.bind(pet_2);
+
+console.log(pet_1);
+
+or
+
+let sayFunction = function getName() {
+return this.name + " " + this.age;
+}
+
+pet_1.say = sayFunction;
+pet_2.say = sayFunction;
+
+let result = pet_1.say() +"; "+pet_2.say();
+console.log(result);
+
+4.2
+
+В программе объявлен объект input и функция sayHi(), которая выводит в
+консоль сообщение из примера. Используя метод присвоения контекста, свяжите
+контекст объекта input с функцией sayHi() и вызовите функцию sayHi().
+
+Пример значений переменных:
+
+input = {
+    id: 1,
+    value: "Добрый вечер",
+    firstName: "Григорий",
+    lastName: "Стрельников" 
+}
+
+function sayHi() {
+    console.log(`${this.value}, ${this.firstName} ${this.lastName}!`)
+}
+Пример результата:
+
+Добрый вечер, Григорий Стрельников!
+
+const inputSayHi = sayHi.bind(input);
+inputSayHi();
+
+or
+
+ sayHi.call(input);
+
+
+4.3
+
+В программе объявлен объект pet со свойствами name и breed и функция getDescription(),
+которая выводит эту информацию, используя this. Привяжите к функции getDescription() контекст
+pet и присвойте получившуюся функцию переменной getDescription.
+
+Пример значений переменных:
+
+pet = { 
+    name: "Диксон", 
+    breed: "Немецкая овчарка" 
+}
+
+function getDescription() { 
+    console.log("Имя питомца: " + this.name + ", Порода: " + this.breed) 
+}
+
+getDescription = getDescription.bind(pet);
+
+console.log(getDescription);
+
+or
+
+var getDescription = getDescription.call(pet);
+
+4.4
+
+В программе объявлен объект props, у которого задан набор свойств.
+Объявите функцию getValue(), которая выводит в консоль строку со всеми
+свойствами и их значениями (без методов). Привяжите объект props в качестве контекста
+функции getValue() и присвойте получившуюся функцию переменной getValue.
+
+Пример значений переменных:
+
+props= { 
+    name: "Анатолий", 
+    age: 29,
+    sayHi: ()=>"привет"
+}
+Пример результата:
+
+Значения свойств объекта props (name: Анатолий, age: 29)
+
+function getValue(){
+  let strObj=Object.entries(this).filter(e=> typeof e[1] !== 'function' ).map(e=> e[0].match(/\w+/g) + `: ${e[1]}`).join(', ');
+  console.log(`Значения свойств объекта props (${strObj})`)
+} 
+getValue=getValue.bind(props)
+getValue()
+
+or
+
+let answer = "Значения свойств объекта props ("
+let added = false;
+    for (let key in props) {
+    if (typeof(props[key]) !== "function") {
+    answer += `${key}: ${props[key]}, `;
+    added = true;
+    }
+}
+    let result = added ? answer.slice(0,answer.length-2)+')' : answer + ')';
+    console.log(result);
+
+
+4.5
+
+В программе объявлен объект hero, свойства которого описывают информацию о герое.
+В объекте в том числе определен метод getPosition, который возвращает позицию героя в игре.
+Определите, почему вызов getPosition работает некорректно. Исправьте эту ошибку.
+
+Пример значений переменных:
+
+hero = { 
+    nick: "FirstHero", 
+    position: "Лагерь",
+    getPosition: ()=>console.log("Позиция героя: " + this.position)
+}
+Пример результата:
+
+Позиция героя: Лагерь
+
+hero = { 
+    nick: "FirstHero", 
+    position: "Лагерь",
+    getPosition: ()=>console.log("Позиция героя: " + this.position)
+}
+
+hero = { 
+    nick: "FirstHero", 
+    position: "Лагерь",
+    getPosition(){
+console.log("Позиция героя: " + this.position);
+}
+}
+
+
+5.1
+
+В программе объявлена переменная order, которая хранит объект.
+Объявите переменную descriptor, которая должна содержать значения 
+всех атрибутов ключа totalPrice объекта orders в виде объекта.
+Результат выведите в консоль.
+
+
+Пример значений переменных:
+
+order = {
+    productName: "Велосипед",
+    costomerName: "Саша",
+    salesName: "Петя",
+    totalPrice: 15000
+}
+Пример результата:
+
+{value: 15000, writable: true, enumerable: true, configurable: true}
+
+let descriptor = Object.getOwnPropertyDescriptor(order, 'totalPrice');
+ 
+console.log(descriptor);
+
+
+5.2
+
+В программе задан объект employees, который содержит ряд свойств и методов.
+Сформируйте строку с именами всех свойств через запятую и пробел (, ) и выведите в консоль. 
+Имена методов добавляться не должны.
+
+
+Пример значений переменных:
+
+employees = {
+    firstName: "Петя",
+    lastName: "Иванов",
+    ratePerDay: 2500,
+    workingDays: 5,
+    getSalary() { console.log(employees.ratePerDay * employees.workingDays )} 
+}
+Пример результата:
+
+firstName, lastName, ratePerDay, workingDays
+
+let result=[];
+for(key in employees){
+if(typeof employees[key] !== "function"){
+result.push(key);
+}
+}
+console.log(result.join(", "))
+
+
+5.3
+
+В программе объявлены переменные firstName и lastName.
+Создайте объект user со свойствами firstName и lastName и добавьте getter и setter fullName.
+Сеттер fullName должен принимать имя и фамилию пользователя через пробел, разделять и 
+присваивать свойствам firstName и lastName соответственно. Геттер fullName должен
+формировать строку, состоящую из имени и фамилии через пробел.
+
+
+Пример значений переменных:
+
+firstName = "Александр"
+lastName = "Петров"
+Пример результата:
+
+user.fullName // "Александр Петров"
+user.fullName = "Всеволод Старозубов"
+user.firstName // "Всеволод"
+user.lastName // "Старозубов"
+
+const user = {
+firstName,
+lastName,
+get fullName() {
+return `${this.firstName} ${this.lastName}`
+},
+set fullName(string) {
+let array = string.split(/ /);
+return this.firstName = array[0], this.lastName = array[1];
+}
+}
+console.log(user.fullName);
+
+or
+
+let user={
+firstName,
+lastName,
+get fullName(){
+return (`${this.firstName} ${this.lastName}`)
+}
+}
+console.log(user.fullName);
+
+
+5.4
+
+В программе объявлены переменные name и phone, которые хранят строки.
+В name указано название заведения, а в phone — его номер телефона.
+Создайте класс Delivery со свойствами name и phone. Помимо описанных 
+свойств, добавьте свойство validPhone, которое проверяет значение свойства 
+phone на вхождение знака + в начале строки. Если знак отсутствует, свойство
+validPhone должно принять булевое значение false, в противном случае — true.
+Создайте экземпляр класса Delivery и в качестве аргументов конструктора укажите
+значения переменных name и phone. Получившийся экземпляр класса запишите в переменную deliveryName.
+
+
+Пример значений переменных:
+
+name = "Pizza"
+phone = "81234567890"
+Пример результата:
+
+false
+
+class Delivery {
+constructor(name, phone) {
+this.name = name;
+this.phone = phone;
+this.validPhone = (phone.match(/^\+/)) ? true : false;
+}
+}
+ const deliveryName = new Delivery(name, phone);
+
+
+5.5
+
+В программе создан класс Permissions, свойства которого описывают
+права пользователей на редактирование статей на сайте. Создайте новый класс
+User, который наследуется от класса Permissions. Дополнительно в классе User
+добавьте свойство name, значение которого класс принимает в качестве аргумента 
+конструктора.
+
+class Permissions {
+    constructor() {
+        this.create = false
+        this.read = true
+        this.update = false
+        this.remove = false
+    }
+}
+class User extends Permissions{
+constructor(name) {
+super()
+this.name=name
+}
+}
+
+
+5.6
+
+В программе задан массив array, элементы которого имеют 
+численное значение, и переменная num, которая является числом.
+Реализуйте функцию queue(num, ...array), которая принимает в качестве 
+аргументов множество значений списка array и значение переменной num. 
+Функция должна найти минимальную сумму num элементов из значений массива array.
+Ответ выведите в консоль.
+
+Пример значений переменных:
+
+array = [2, 4, 7, 8, 1]
+num = 2
+
+Пример результата:
+
+3
+
+function queue(num, ...array) {
+let sum = 0;
+array.sort((a,b) => a-b);
+console.log(array);
+for (let i = 0; i < num; i++) {
+sum += array[i];    
+}
+
+return sum;
+}
+
+console.log(queue(num, ...array));
+
+
+6.1
+
+В программе задана переменная ctx, которая содержит контекст canvas элемента.
+Отрисуйте в canvas прямоугольник fillRect с размерами 100 на 65.
+
+<html>
+<head>
+</head>
+<body>
+    <canvas id='root'></canvas>
+</body>
+
+</html>
+
+let ctx = document.getElementById("root");
+let context = ctx.getContext("2d");
+context.fillRect(0,0,100,65);
+
+6.2
+
+В программе задана переменная ctx, которая содержит контекст canvas элемента.
+Отрисуйте в canvas два горизонтальных отрезка длиной 100.
+
+Координаты первого отрезка: точка 1: x = 100, y = 100; точка 2: x = 200, y = 100.
+
+Координаты второго отрезка: точка 1: x = 100, y = 150; точка 2: x = 200, y = 150.
+
+<html>
+<head>
+</head>
+<body>
+    <canvas id='root'></canvas>
+</body>
+
+</html> 
+
+   let ctx =   document.getElementById("root");
+    let context = ctx.getContext("2d");
+
+    context.beginPath();
+    context.moveTo(100, 100);
+    context.lineTo(200, 100);
+
+    context.moveTo(100, 150);
+    context.lineTo(200, 150);
+    context.closePath();
+context.stroke()
+
+
+6.3
+
+В программе задана переменная ctx, которая содержит контекст canvas элемента.
+Отрисуйте в canvas три отрезка разных цветов. Первый отрезок красного #e74c3c цвета, 
+второй — зеленого #16a085 цвета, а третий — синего #2980b9 цвета.
+
+<html>
+<head>
+</head>
+<body>
+    <canvas id='root'></canvas>
+</body>
+
+</html>
+
+body {
+  background-color: #6f9e80;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+    let ctx = document.getElementById("root");
+    let context = ctx.getContext("2d");
+
+    context.beginPath();
+    context.strokeStyle = "#e74c3c";
+    context.moveTo(15,25);
+    context.lineTo(100,25);
+    context.stroke();
+
+    context.beginPath();
+    context.strokeStyle = "#16a085";
+    context.moveTo(15,50);
+    context.lineTo(100,50);
+    context.stroke();
+
+    context.beginPath();
+    context.strokeStyle = "#2980b9";
+    context.moveTo(15,75);
+    context.lineTo(100,75);
+    context.stroke();
+
+
+6.4
+
+В программе задана переменная ctx, которая содержит контекст canvas элемента. 
+Отрисуйте в canvas четыре квадрата fillRect разных цветов с указанными на картинке размерами и отступами.
+
+let ctx = document.getElementById("root");
+    let context = ctx.getContext("2d");
+
+    context.beginPath();
+    context.fillStyle = '#ff3d00';
+    context.fillRect(10, 10, 100, 100);
+    context.fillStyle = '#0bdd38';
+    context.fillRect(120, 10, 100, 100);
+    context.fillStyle = '#2e77da';
+    context.fillRect(10, 120, 100, 100);
+    context.fillStyle = '#ffd200';
+    context.fillRect(120, 120, 100, 100);
+
+6.5
+
+В программе задана переменная ctx, которая содержит контекст canvas элемента.
+Отрисуйте в canvas 50 окружностей c центром в точке 150:150 и радиусом от 2 до 100.
+Для решения данной задачи воспользуйтесь циклом.
+
+let ctx = document.getElementById('root');
+let context = ctx.getContext('2d');
+context.beginPath();
+for(i=1;i<=50;i++){
+context.arc(150, 150, 2, 0, 2*Math.PI);
+}
+context.stroke();
+context.closePath();
+
+
+6.6
+
+В программе задана переменная ctx, которая содержит контекст canvas элемента.
+Напишите программу, которая отрисовывает круги при движении мышью по canvas 
+(для получения координат мыши используйте offsetX и offsetY). 
+Для решения задачи воспользуйтесь методом addEventListener у объекта document.
+
+let ctx=document.getElementById("root");
+let context=ctx.getContext("2d");
+
+document.addEventListener("mousemove", e=>{
+context.beginPath();
+context.arc(e.offsetX,e.offsetY,50,0,2*Math.PI);
+context.stroke();
+});
+
+or
+
+let ctx=document.getElementById("root");
+let context=ctx.getContext("2d");
+
+function animate(){
+ context.beginPath();
+ context.arc(event.offsetX,event.offsetY,  
+ 50,0,2*Math.PI);
+ context.stroke();
+}
+
+document.addEventListener("mousemove",animate);
